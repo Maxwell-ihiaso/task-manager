@@ -107,7 +107,7 @@ const TaskForm = () => {
    **************  */
   React.useEffect(() => {
     // -----------GET UNIQUE TASK
-    if (taskID && listID) {
+    if (taskID && listID && isEdit) {
       const selectedList = JSON.parse(localStorage.getItem("task")).filter(
         (list) => list.id === listID
       );
@@ -119,14 +119,14 @@ const TaskForm = () => {
     }
 
     // ------------GET UNIQUES LIST
-    else if (listID) {
+    else if (listID && isEdit) {
       const selectedList = JSON.parse(localStorage.getItem("task")).filter(
         (list) => list.id === listID
       );
       inputContainer.current.value = selectedList[0].title;
       setIsChecked(selectedList[0].isCompleted);
     }
-  }, [listID, taskID]);
+  }, [listID, taskID, isEdit]);
 
   // ===========FUNCTION TO POST DATA GIVEN URL AND DATA TO BE POSTED=============
   // const postData = React.useCallback(
