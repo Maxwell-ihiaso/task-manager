@@ -60,14 +60,14 @@ const TaskForm = () => {
           .tasks.push({
             id: genID(),
             title: list,
-            isCompleted,
+            isCompleted: false,
           });
         localStorage.setItem("task", JSON.stringify(itemInLocal));
       } else if (itemInLocal) {
         itemInLocal.push({
           id: genID(),
           title: list,
-          isCompleted,
+          isCompleted: false,
           tasks: [],
         });
 
@@ -79,7 +79,7 @@ const TaskForm = () => {
             {
               id: genID(),
               title: list,
-              isCompleted,
+              isCompleted: false,
               tasks: [],
             },
           ])
